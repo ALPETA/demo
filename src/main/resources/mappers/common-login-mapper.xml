@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.config.dao.LoginDAO">
+
+	<!-- 내부 사용자 정보 조회 : 로그인 -->
+    <select id="selectUserInfo" parameterType="String" resultType="WebUserVO">
+		SELECT
+			USR_ID,
+			USR_NM,
+			PASSWD,
+			TELNO,
+			EMAIL
+		FROM
+			USER
+		WHERE
+			USR_ID = #{value}
+	</select>
+
+	
+</mapper>
