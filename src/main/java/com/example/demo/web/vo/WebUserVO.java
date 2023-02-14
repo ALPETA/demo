@@ -16,7 +16,7 @@ public class WebUserVO extends UserVO {
     private String address; // 주소
     private String email; // 이메일
     private String level; // 등급
-    private String userRole; // 롤(USER, ADMIN)
+    private String role; // 롤(USER, ADMIN)
 
     @Override
     public String getUserId() {
@@ -26,5 +26,10 @@ public class WebUserVO extends UserVO {
     @Override
     public String getUserName() {
         return this.usrNm;
+    }
+
+    @Override
+    public String getUserRole() {
+        return this.role;
     }
 }

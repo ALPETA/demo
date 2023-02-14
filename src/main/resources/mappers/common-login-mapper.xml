@@ -6,15 +6,18 @@
 	<!-- 내부 사용자 정보 조회 : 로그인 -->
     <select id="selectUserInfo" parameterType="String" resultType="WebUserVO">
 		SELECT
-			USR_ID,
-			USR_NM,
+			USER_ID,
+			USER_NM,
 			PASSWD,
-			TELNO,
-			EMAIL
+			PHONE_NO,
+			ADDRESS,
+			EMAIL,
+			LEVEL,
+			ROLE
 		FROM
 			USER
 		WHERE
-			USR_ID = #{value}
+			USER_ID = #{value}
 	</select>
 
 	
