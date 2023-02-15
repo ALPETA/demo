@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/minty/bootstrap.min.css">
+  <link th:href="@{~/css/login.css}" rel="stylesheet">
+
+  <title>로그인</title>
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+    <form th:action method="post" class="register-form">
+      <input class="form-control" type="text" placeholder="ID"/>
+      <input class="form-control" type="password" placeholder="PASSWORD"/>
+      <input class="form-control" type="text" placeholder="NAME"/>
+      <input class="form-control" type="email" placeholder="EMAIL"/>
+      <input class="form-control" type="text" placeholder="PHONE"/>
+      <button type="submit" class="btn btn-primary">create</button>
+      <p class="message">계정이 있으신가요? <a th:href="@{~/login}">로그인 하러가기</a></p>
+      <p class="message">메인화면으로 <a th:href="@{~/}">돌아가기</a></p>
+    </form>
+  </div>
+</div>
+</body>
+</html>

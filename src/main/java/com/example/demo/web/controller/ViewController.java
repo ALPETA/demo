@@ -25,6 +25,17 @@ public class ViewController {
     }
 
     /**
+     * 회원가입 페이지
+     * @return
+     */
+    @GetMapping("/register")
+    public ModelAndView register(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("register");
+        return mav;
+    }
+
+    /**
      * 메인페이지
      * @return
      */

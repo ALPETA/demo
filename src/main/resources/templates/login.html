@@ -11,19 +11,12 @@
 <body>
 <div class="login-page">
   <div class="form">
-    <form class="register-form">
-      <input class="form-control" type="text" placeholder="name"/>
-      <input class="form-control" type="password" placeholder="password"/>
-      <input class="form-control" type="text" placeholder="email address"/>
-      <button type="submit" class="btn btn-light">create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
     <form th:action method="post" class="login-form">
       <input id="username" class="form-control" type="text" placeholder="ID"/>
       <input id="password" class="form-control" type="password" placeholder="PASSWORD"/>
       <button type="submit" class="btn btn-primary">login</button>
-      <p class="message">계정이 없으신가요? <a href="#">회원가입 하러가기</a></p>
-      <p class="message">메인화면으로 <a  th:href="@{~/}">돌아가기</a></p>
+      <p class="message">계정이 없으신가요? <a th:href="@{~/register}">회원가입 하러가기</a></p>
+      <p class="message">메인화면으로 <a th:href="@{~/}">돌아가기</a></p>
     </form>
   </div>
 </div>

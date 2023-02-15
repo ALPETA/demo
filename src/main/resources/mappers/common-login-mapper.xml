@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.demo.config.dao.LoginDAO">
 
-	<!-- 내부 사용자 정보 조회 : 로그인 -->
+	<!-- 사용자 정보 조회 : 로그인 -->
     <select id="selectUserInfo" parameterType="String" resultType="WebUserVO">
 		SELECT
 			USER_ID,
@@ -16,7 +16,8 @@
 			CASE
 				WHEN ROLE = 'Y' THEN 'ADMIN'
 				ELSE 'USER'
-				END AS USER_ROLE
+				END AS USER_ROLE,
+		    REG_DT
 		FROM
 			USER
 		WHERE
