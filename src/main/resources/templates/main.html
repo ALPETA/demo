@@ -5,9 +5,57 @@
       layout:decorate="~{layout/base}">
 <head>
     <meta charset="UTF-8">
-    <title>메인</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title>main</title>
 </head>
 <body>
-메인페이지
+    <div class="container div_main">
+        <div class="page_header">
+            <div class="row">
+                <h1>Hellow</h1>
+                <p class="lead">main page</p>
+            </div>
+        </div>
+        <div class="page_header">
+            <div class="row">
+                <h2>Example body text</h2>
+                <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p>The following is <strong>rendered as bold text</strong>.</p>
+                <p>The following is <em>rendered as italicized text</em>.</p>
+                <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+            </div>
+        </div>
+        <div class="page_header">
+            <div class="row">
+                <h2>Emphasis classes</h2>
+                <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p class="text-secondary">Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+                <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+                <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li class="float-end"><a href="#top">Back to top</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">RSS</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Donate</a></li>
+                    </ul>
+                    <p>Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>
+                    <p>Code released under the <a href="#">MIT License</a>.</p>
+                    <p>Based on <a href="#" rel="nofollow">Bootstrap</a>. Icons from <a href="#" rel="nofollow">Bootstrap Icons</a>. Web fonts from <a href="#" rel="nofollow">Google</a>.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

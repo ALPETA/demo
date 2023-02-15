@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.config.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,11 @@ public class SpringSecurityConfig {
     private final UserDetailsService customUserDetailService;
 
     @Bean
+    public UserDetailsService userDetailsService() {
+        return customUserDetailService;
+    }
+
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -27,7 +33,6 @@ public class SpringSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
-                .requestMatchers(HttpMethod.POST,"/login")
                 .requestMatchers("/font/**")
                 .requestMatchers("/js/**")
                 .requestMatchers("/lib/**")
@@ -47,10 +52,11 @@ public class SpringSecurityConfig {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
+                .failureUrl("/")
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/");
         /*http.csrf().disable();*/
 
         return http.build();

@@ -13,7 +13,10 @@
 			ADDRESS,
 			EMAIL,
 			LEVEL,
-			ROLE
+			CASE
+				WHEN ROLE = 'Y' THEN 'ADMIN'
+				ELSE 'USER'
+				END AS USER_ROLE
 		FROM
 			USER
 		WHERE
