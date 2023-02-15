@@ -1,0 +1,1 @@
+document.querySelectorAll('.navbar-brand')

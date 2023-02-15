@@ -1,0 +1,22 @@
+body {
+    padding-top: 120px;
+}
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+footer ul li{
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+footer p {
+    clear: left;
+}
+
+.page_header {
+
+}
