@@ -16,7 +16,7 @@ public class WebUserVO extends UserVO {
     private String phonNo; // 전화번호
     private String address; // 주소
     private String email; // 이메일
-    private String level; // 등급
+    private String userLevel; // 등급
     private String userRole; // 롤(USER, ADMIN)
     private String regDt; // 가입일
 

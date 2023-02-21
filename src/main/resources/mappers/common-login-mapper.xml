@@ -12,7 +12,7 @@
 			PHONE_NO,
 			ADDRESS,
 			EMAIL,
-			LEVEL,
+			USER_LEVEL,
 			CASE
 				WHEN ROLE = 'Y' THEN 'ADMIN'
 				ELSE 'USER'
