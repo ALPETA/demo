@@ -19,7 +19,7 @@
 				END AS USER_ROLE,
 		    REG_DT
 		FROM
-			USER
+			USER_LIST
 		WHERE
 			USER_ID = #{value}
 	</select>

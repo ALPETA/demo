@@ -33,6 +33,8 @@ public class RegisterServiceImpl implements RegisterService {
         String password = passwordEncoder.encode(submitValues.get("passwd").toString());
         submitValues.put("passwd", password);
 
+        System.out.println(submitValues);
+
         return registerDAO.submitInnerUser(submitValues);
     }
 }

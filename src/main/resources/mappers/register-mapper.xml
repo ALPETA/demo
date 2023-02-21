@@ -8,7 +8,7 @@
         SELECT
             USER_ID
         FROM
-            USER
+            USER_LIST
         WHERE
             USER_ID = #{usrId}
     </select>
@@ -16,8 +16,8 @@
     <!-- 회원가입 -->
     <insert id="submitInnerUser" parameterType="java.util.HashMap">
         INSERT INTO
-            USER(USER_ID, USER_NM, PASSWD, PHONE_NO, EMAIL)
-        VALUES(#{usrId},#{usrnm},#{passwd},#{phonno},#{email})
+            USER_LIST(USER_ID, USER_NM, PASSWD, PHONE_NO, EMAIL)
+        VALUES(#{userId},#{usrNm},#{passwd},#{phonNo},#{email})
     </insert>
 
 </mapper>
