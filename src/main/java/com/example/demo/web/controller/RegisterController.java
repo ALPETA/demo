@@ -21,11 +21,11 @@ public class RegisterController {
     private final RegisterService registerService;
 
     @PostMapping(value = "/getOverlapId")
-    public Map<String, Object> getOverlapId(String usrId) {
+    public Map<String, Object> getOverlapId(@RequestBody Map<String, Object> userIdJson) {
         Map<String, Object> result = new HashMap<String, Object>();
 
         try {
-            result.put("overlap", registerService.getOverlapId(usrId));
+            result.put("overlap", registerService.getOverlapId(userIdJson.get("userId").toString()));
             result.put("result","success");
         } catch (Exception e) {
             result.put("result","fail");

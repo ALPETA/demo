@@ -10,7 +10,7 @@
         FROM
             USER_LIST
         WHERE
-            USER_ID = #{usrId}
+            USER_ID = #{userId}
     </select>
 
     <!-- 회원가입 -->

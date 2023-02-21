@@ -21,7 +21,6 @@
     text-transform: uppercase;
     outline: 0;
     width: 100%;
-    border: 0;
     padding: 15px;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
@@ -33,6 +32,14 @@
     font-size: 12px;
 }
 .form .message a {
+    text-decoration: none;
+}
+
+.form .overlap {
+    margin: 15px 0 15px;
+    font-size: 12px;
+}
+.form .overlap a {
     text-decoration: none;
 }
 

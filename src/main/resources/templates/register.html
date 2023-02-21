@@ -13,10 +13,13 @@
 <body>
 <div class="login-page">
   <div class="form">
+    <div><h4>JOIN US!</h4></div>
     <div id="submitUser">
-      <input id="userId" name="userId" class="form-control" type="text" required="required" placeholder="ID"/>
-      <input id="passwd" name="passwd" class="form-control" type="password" required="required" placeholder="PASSWORD"/>
-      <input id="usrNm" name="usrNm" class="form-control" type="text" required="required" placeholder="NAME"/>
+      <input id="userId" name="userId" class="form-control is-invalid" type="text" required="required" placeholder="ID"/>
+      <p class="overlap"><a id="overlap" href="#">아이디 중복확인</a></p>
+      <input id="passwd" name="passwd" class="form-control is-invalid" type="password" required="required" placeholder="PASSWORD"/>
+      <input id="chkPasswd" name="passwd" class="form-control is-invalid" type="password" required="required" placeholder="PASSWORD"/>
+      <input id="usrNm" name="usrNm" class="form-control is-invalid" type="text" required="required" placeholder="NAME"/>
       <input id="email" name="email" class="form-control" type="email" required="required" placeholder="EMAIL"/>
       <input id="phonNo" name="phonNo" class="form-control" type="text" required="required" placeholder="PHONE"/>
       <button id="submit" class="btn btn-primary">CREATE</button>
