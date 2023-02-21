@@ -1,14 +1,15 @@
 package com.example.demo.web.vo;
 
 import com.example.demo.common.vo.UserVO;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class WebUserVO extends UserVO {
-    @Getter
-    @Setter
+
     private String userId; // 아이디
     private String usrNm; // 이름
     private String passwd; // 비번
@@ -20,13 +21,7 @@ public class WebUserVO extends UserVO {
     private String regDt; // 가입일
 
     @Override
-    public String getUserId() {
+    public String getUserName() {
         return this.userId;
     }
-
-    @Override
-    public String getUserName() {
-        return this.usrNm;
-    }
-
 }

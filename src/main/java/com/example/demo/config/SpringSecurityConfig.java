@@ -1,10 +1,8 @@
 package com.example.demo.config;
 
-import com.example.demo.config.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -44,8 +42,9 @@ public class SpringSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
-                .requestMatchers("/login**","/register**","/").permitAll()
+        http.csrf().disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/login**","/register**","/register/**","/").permitAll()
                 .requestMatchers("/admin**").hasAnyRole("ADMIN")
                 .anyRequest().hasAnyRole("USER", "ADMIN")
                 .and()

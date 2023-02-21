@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.demo.config.dao.RegisterDAO">
+<mapper namespace="com.example.demo.web.dao.RegisterDAO">
 
     <!-- 아이디 중복확인 -->
     <select id="getOverlapId" parameterType="string" resultType="string">
@@ -14,7 +14,7 @@
     </select>
 
     <!-- 회원가입 -->
-    <insert id="submitInnerUser" parameterType="InnerUserVo">
+    <insert id="submitInnerUser" parameterType="java.util.HashMap">
         INSERT INTO
             USER(USER_ID, USER_NM, PASSWD, PHONE_NO, EMAIL)
         VALUES(#{usrId},#{usrnm},#{passwd},#{phonno},#{email})

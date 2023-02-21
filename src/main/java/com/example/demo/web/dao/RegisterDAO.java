@@ -1,11 +1,12 @@
 package com.example.demo.web.dao;
 
-import com.example.demo.common.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.Map;
 
 @Mapper
 public interface RegisterDAO {
-    public String getOverlapId(String userId) throws Exception;
+    String getOverlapId(String userId) throws Exception;
 
-    public int submitInnerUser(UserVO userVO) throws Exception;
+    int submitInnerUser(Map<String, Object> submitValues) throws Exception;
 }

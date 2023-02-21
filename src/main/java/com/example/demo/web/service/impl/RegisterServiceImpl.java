@@ -1,22 +1,25 @@
 package com.example.demo.web.service.impl;
 import com.example.demo.web.dao.RegisterDAO;
 import com.example.demo.web.service.RegisterService;
-import com.example.demo.web.vo.WebUserVO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
+@Repository
 public class RegisterServiceImpl implements RegisterService {
 
     private final RegisterDAO registerDAO;
 
-    private final BCryptPasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Boolean getOverlapId(String userId) throws Exception {
-        Boolean overLap = false;
+        boolean overLap = false;
         String result = registerDAO.getOverlapId(userId);
 
         if(result != null){
@@ -26,10 +29,10 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public int submitInnerUser(WebUserVO userVO) throws Exception {
-        String password = passwordEncoder.encode(userVO.getPasswd());
-        userVO.setPasswd(password);
+    public int submitInnerUser(Map<String, Object> submitValues) throws Exception {
+        String password = passwordEncoder.encode(submitValues.get("passwd").toString());
+        submitValues.put("passwd", password);
 
-        return registerDAO.submitInnerUser(userVO);
+        return registerDAO.submitInnerUser(submitValues);
     }
 }
