@@ -4,7 +4,7 @@
 <mapper namespace="com.example.demo.config.dao.LoginDAO">
 
 	<!-- 사용자 정보 조회 : 로그인 -->
-    <select id="selectUserInfo" parameterType="String">
+    <select id="selectUserInfo" parameterType="String" resultType="com.example.demo.web.vo.WebUserVO">
 		SELECT
 			USER_ID,
 			USER_NM,
@@ -21,7 +21,7 @@
 		FROM
 			USER_LIST
 		WHERE
-			USER_ID = #{value}
+			USER_ID = #{userId}
 	</select>
 	
 </mapper>

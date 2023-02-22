@@ -11,7 +11,6 @@ import java.util.Collections;
 
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails {
-
     private final UserVO userVO;
 
     @Override
@@ -26,7 +25,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userVO.getUserName();
+        return userVO.getUserId();
     }
 
     @Override

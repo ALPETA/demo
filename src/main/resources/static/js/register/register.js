@@ -39,6 +39,7 @@ function overlapId(){
         })
         .catch((error) => {
             console.error(error);
+            if(alert("오류가 발생했습니다 관리자에게 문의 바랍니다.")) location.href="/main";
         })
 }
 
@@ -59,7 +60,6 @@ function submitUser(){
     const usrNm = document.getElementById('usrNm').value;
     const email = document.getElementById('email').value;
     const phonNo = document.getElementById('phonNo').value;
-    console.log(userId,passwd,usrNm,email,phonNo)
 
     fetch("/register/submitUser", {
         method: 'POST',
@@ -82,10 +82,12 @@ function submitUser(){
     })
         .then((data) => {
             console.log(data);
-            if(alert("가입에 성공했습니다.")) location.href="/login";
+            alert("가입에 성공했습니다.");
+            location.href="/login";
         })
         .catch((error) => {
             console.error(error);
-            if(alert("가입에 실패했습니다 관리자에게 문의 바랍니다.")) location.href="/main";
+            alert("가입에 실패했습니다 관리자에게 문의 바랍니다.");
+            location.href="/main";
         })
 }
