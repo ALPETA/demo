@@ -53,7 +53,6 @@ public class SpringSecurityConfig {
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/");
-        /*http.csrf().disable();*/
 
         return http.build();
     }

@@ -15,8 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserVO result = null;
-        result = loginDAO.selectUserInfo(username);
+        UserVO result = loginDAO.selectUserInfo(username);
 
         if (result != null) {
             return new CustomUserDetails(result);
