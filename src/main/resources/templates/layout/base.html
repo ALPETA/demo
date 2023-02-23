@@ -9,13 +9,14 @@
   <link rel="stylesheet" th:href="@{/css/bootswatch/bootstrap.css}">
   <link rel="stylesheet" th:href="@{/css/bootswatch/_bootswatch.scss}">
   <link rel="stylesheet" th:href="@{/css/bootswatch/_variables.scss}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
   <title>Title</title>
 </head>
 
 <header>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">MintyJewelry</a>
+    <a class="navbar-brand" th:href="@{~/}">MintyJewelry</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,16 +45,21 @@
       <ul class="navbar-nav ms-md-auto">
         <th:block sec:authorize="isAuthenticated()">
           <li class="nav-item">
-            <a class="nav-link active" th:text="|${#authentication.name}님|"></a>
+            <a class="nav-link active" th:text="|어서오세요 ${#authentication.name}님|"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link a_login" href="#">MYPAGE</a>
+            <a class="nav-link a_mypage" href="#">MYPAGE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active">/</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link a_login" th:href="@{~/logout}">LOGOUT</a>
+            <a class="nav-link a_cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+          <li class="nav-item">
+            <a class="nav-link active">/</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link a_logout" th:href="@{~/logout}">LOGOUT</a>
           </li>
         </th:block>
         <th:block sec:authorize="!isAuthenticated()">
