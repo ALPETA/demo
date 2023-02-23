@@ -18,8 +18,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SpringSecurityConfig {
 
-    private final UserDetailsService customUserDetailService;
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -56,6 +54,7 @@ public class SpringSecurityConfig {
 
         return http.build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
