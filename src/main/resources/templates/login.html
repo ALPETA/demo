@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
 
@@ -17,6 +18,9 @@
       <input name="username" class="form-control" type="text" required="required" placeholder="ID"/>
       <input name="password" class="form-control" type="password" required="required" placeholder="PASSWORD"/>
       <button type="submit" class="btn btn-primary">login</button>
+      <th:block th:if="${error}">
+        <p class="message" th:text="${exception}"></p>
+      </th:block>
       <p class="message">계정이 없으신가요? <a th:href="@{~/register}">회원가입 하러가기</a></p>
       <p class="message">메인화면으로 <a th:href="@{~/}">돌아가기</a></p>
     </form>
