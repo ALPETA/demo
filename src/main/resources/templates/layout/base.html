@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html
-        lang="ko"
-        xmlns:th="http://www.thymeleaf.org"
-        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" th:href="@{/css/bootswatch/bootstrap.css}">
@@ -15,12 +14,12 @@
 
 <header>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand" th:href="@{~/}">MintyJewelry</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">ABOUT</a>
@@ -51,13 +50,7 @@
             <a class="nav-link a_mypage" href="#">MYPAGE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active">/</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link a_cart" href="#"><i class="fas fa-shopping-cart"></i></a>
-          <li class="nav-item">
-            <a class="nav-link active">/</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link a_logout" th:href="@{~/logout}">LOGOUT</a>
           </li>
@@ -65,9 +58,6 @@
         <th:block sec:authorize="!isAuthenticated()">
           <li class="nav-item">
             <a class="nav-link a_login" th:href="@{~/login}">LOGIN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active">/</a>
           </li>
           <li class="nav-item">
             <a class="nav-link a_register" th:href="@{~/register}">LEGISTER</a>
@@ -80,5 +70,5 @@
 </header>
 
 <th:block layout:fragment="content_body"></th:block>
-
+<script th:src="@{~/js/base.js}"></script>
 </html>
