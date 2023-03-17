@@ -5,28 +5,55 @@
       layout:decorate="~{layout/base}">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/productlist.css}">
     <title></title>
 </head>
 <body>
 <div class="container div_main">
     <div class="page_header">
         <div class="row">
-            <h1>About US</h1>
+            <h1>ALL PRODUCT</h1>
         </div>
     </div>
     <div class="page_header">
         <div class="row">
-            <p>나의 첫번째 TOY PROJECT!</p>
+            <p></p>
         </div>
     </div>
     <div class="page_header">
         <div class="row">
-            <p class="text-secondary">Jolielaide</p>
-            <p class="text-warning">LETTER FROM MOON</p>
-            <p class="text-danger">SINOON</p>
-            <p class="text-success">Rockfish Weatherwear</p>
-            <p class="text-info">LUV IS TRUE.</p>
+            <div class="card mb-3">
+                <h3 class="card-header"></h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">브랜드</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">상품이름</li>
+                    <li class="list-group-item">가격</li>
+                </ul>
+                <div class="card-footer text-muted">
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h3 class="card-header"></h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">브랜드</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">상품이름</li>
+                    <li class="list-group-item">가격</li>
+                </ul>
+                <div class="card-footer text-muted">
+                </div>
+            </div>
         </div>
     </div>
     <th:block th:replace="layout/footer"></th:block>

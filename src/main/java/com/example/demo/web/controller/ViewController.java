@@ -47,13 +47,24 @@ public class ViewController {
     }
 
     /**
-     * 메인페이지
+     * 브랜드 소개 페이지
      * @return
      */
     @GetMapping("/about")
     public ModelAndView about(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("about");
+        return mav;
+    }
+
+    /**
+     * 상품리스트
+     * @return
+     */
+    @GetMapping("/productlist")
+    public ModelAndView productlist(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("productlist");
         return mav;
     }
 
