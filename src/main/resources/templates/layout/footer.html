@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/bootswatch/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/bootswatch/_bootswatch.scss}">
+    <link rel="stylesheet" th:href="@{/css/bootswatch/_variables.scss}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <title>Title</title>
 </head>
-<body>
 
-</body>
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="list-unstyled">
+                <li class="float-end"><a href="#top">Back to top</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">RSS</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+            <p>Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>
+            <p>Code released under the <a href="#">MIT License</a>.</p>
+            <p>Based on <a href="#" rel="nofollow">Bootstrap</a>. Icons from <a href="#" rel="nofollow">Bootstrap Icons</a>. Web fonts from <a href="#" rel="nofollow">Google</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<th:block layout:fragment="content_body"></th:block>
+<script th:src="@{~/js/base.js}"></script>
 </html>
