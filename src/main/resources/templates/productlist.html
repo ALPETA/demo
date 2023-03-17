@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title></title>
 </head>
 <body>
-
+<div class="container div_main">
+    <div class="page_header">
+        <div class="row">
+            <h1>About US</h1>
+        </div>
+    </div>
+    <div class="page_header">
+        <div class="row">
+            <p>나의 첫번째 TOY PROJECT!</p>
+        </div>
+    </div>
+    <div class="page_header">
+        <div class="row">
+            <p class="text-secondary">Jolielaide</p>
+            <p class="text-warning">LETTER FROM MOON</p>
+            <p class="text-danger">SINOON</p>
+            <p class="text-success">Rockfish Weatherwear</p>
+            <p class="text-info">LUV IS TRUE.</p>
+        </div>
+    </div>
+    <th:block th:replace="layout/footer"></th:block>
+</div>
 </body>
 </html>
