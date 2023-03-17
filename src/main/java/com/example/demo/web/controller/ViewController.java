@@ -46,4 +46,15 @@ public class ViewController {
         return mav;
     }
 
+    /**
+     * 메인페이지
+     * @return
+     */
+    @GetMapping("/about")
+    public ModelAndView about(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("about");
+        return mav;
+    }
+
 }
