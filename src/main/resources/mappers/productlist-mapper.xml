@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.web.dao.ProductListDAO">
+
+    <!-- 모든 아이템 -->
+    <select id="getProductList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    select
+        pl.prdt_id,
+        pl.prdt_name,
+        pl.prdt_mainimg,
+        pl.brand_nm,
+        pl.price,
+        pl.categori,
+        pl.updt_dt
+    from(
+            SELECT
+                prdt_id,
+                prdt_name,
+                prdt_mainimg,
+                brand_nm,
+                prdt_detail -> 'price' as price,
+                prdt_detail -> 'categori' as categori,
+                updt_dt
+            FROM
+                product_list
+            where
+                1 = 1
+                <if test="brand">
+                    and prdt_id = #{brand}::uuid
+                </if>
+        )pl
+    where
+        1 = 1
+        <if test="categori">
+            and  pl.categori = #{categori}::uuid
+        </if>
+        <if test="updtDt">
+            and  pl.updt_dt = #{updtDt}
+        </if>
+    </select>
+
+    <select id="getProductDetail" parameterType="string" resultType="java.util.HashMap">
+        select
+            prdt_id,
+            prdt_name,
+            prdt_mainimg,
+            brand_nm,
+            prdt_detail,
+            updt_dt
+        from
+            product_list
+        where
+            prdt_id = #{prdtId}::uuid
+    </select>
+</mapper>

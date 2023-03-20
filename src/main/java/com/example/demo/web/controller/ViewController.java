@@ -2,6 +2,7 @@ package com.example.demo.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,8 +13,7 @@ public class ViewController {
 
     /**
      * 로그인 페이지
-     * @param mav
-     * @return
+     * @return mav
      */
     @GetMapping("/login")
     public ModelAndView login(@RequestParam(value = "error", required = false)String error,
@@ -26,7 +26,7 @@ public class ViewController {
 
     /**
      * 회원가입 페이지
-     * @return
+     * @return mav
      */
     @GetMapping("/register")
     public ModelAndView register(){
@@ -37,7 +37,7 @@ public class ViewController {
 
     /**
      * 메인페이지
-     * @return
+     * @return mav
      */
     @GetMapping("/")
     public ModelAndView main(){
@@ -48,7 +48,7 @@ public class ViewController {
 
     /**
      * 브랜드 소개 페이지
-     * @return
+     * @return mav
      */
     @GetMapping("/about")
     public ModelAndView about(){
@@ -59,12 +59,27 @@ public class ViewController {
 
     /**
      * 상품리스트
-     * @return
+     * @return mav
      */
-    @GetMapping("/productlist")
-    public ModelAndView productlist(){
+    @GetMapping("/productlist/{state}")
+    public ModelAndView productlist(
+            @PathVariable("state") String state
+    ){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("productlist");
+        return mav;
+    }
+
+    /**
+     * 브랜드페이지
+     * @return mav
+     */
+    @GetMapping("/brandpage/{brand}")
+    public ModelAndView brandpage(
+            @PathVariable("brand") String brand
+    ){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("brandpage");
         return mav;
     }
 

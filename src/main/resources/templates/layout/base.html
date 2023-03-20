@@ -22,22 +22,22 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" th:href="@{~/about}">ABOUT</a>
+          <a class="nav-link" th:href="@{~/about}">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">NEW</a>
+          <a class="nav-link" th:href="@{~/productlist/new}">NEW</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{~/productlist}">ALL</a>
+          <a class="nav-link" th:href="@{~/productlist/all}">ALL</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">COLLECTION</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">BRAND</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <a class="dropdown-item text-secondary" th:href="@{~/brandpage/jolielaide}">Jolielaide</a>
+            <a class="dropdown-item text-warning" th:href="@{~/brandpage/letterfrommoon}">LETTER FROM MOON</a>
+            <a class="dropdown-item text-danger" th:href="@{~/brandpage/sinoon}">SINOON</a>
+            <a class="dropdown-item text-success" th:href="@{~/brandpage/rockfishwetherwear}">Rockfish Weatherwear</a>
+            <a class="dropdown-item text-info" th:href="@{~/brandpage/luvistrue}">LUV IS TRUE</a>
           </div>
         </li>
       </ul>
