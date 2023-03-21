@@ -17,4 +17,11 @@ public interface ProductListService {
      * @throws Exception
      */
     List<Map<String, Object>> getProductDetail(String prdtId) throws Exception;
+
+    /**
+     * 브랜드 상세
+     * @param brandNm
+     * @throws Exception
+     */
+    List<Map<String, Object>> getBrandDetail(String brandNm) throws Exception;
 }

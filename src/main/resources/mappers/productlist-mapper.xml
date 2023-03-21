@@ -5,39 +5,51 @@
 
     <!-- 모든 아이템 -->
     <select id="getProductList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-    select
-        pl.prdt_id,
-        pl.prdt_name,
-        pl.prdt_mainimg,
-        pl.brand_nm,
-        pl.price,
-        pl.categori,
-        pl.updt_dt
-    from(
-            SELECT
-                prdt_id,
-                prdt_name,
-                prdt_mainimg,
-                brand_nm,
-                prdt_detail -> 'price' as price,
-                prdt_detail -> 'categori' as categori,
-                updt_dt
-            FROM
-                product_list
-            where
-                1 = 1
-                <if test="brand">
-                    and prdt_id = #{brand}::uuid
-                </if>
-        )pl
-    where
-        1 = 1
-        <if test="categori">
-            and  pl.categori = #{categori}::uuid
-        </if>
-        <if test="updtDt">
-            and  pl.updt_dt = #{updtDt}
-        </if>
+        SELECT
+            prdt_id,
+            prdt_name,
+            prdt_mainimg,
+            brand_name,
+            updt_date,
+            prdt_price,
+            prdt_categori,
+            brand_id,
+            sale_code,
+            sl.sale_count,
+        FROM
+            product_list pl,
+            (
+                select
+                    sale_code,
+                    sale_count,
+                    sale_period
+                from
+                    sale_list
+                where
+                    sale_period > now()
+            ) sl
+        where
+            pl.sale_code = sl.sale_code
+            <if test="brandId">
+                and brand_id = #{brandId}::uuid
+            </if>
+            <if test="prdtNm">
+                and prdt_name = #{prdtNm}::uuid
+            </if>
+            <if test="prdtCategori">
+                and prdt_categori like '%'||#{prdtCategori}||'%'::uuid
+            </if>
+            <if test="updtDt">
+                and  updt_date > #{updtDt}
+            </if>
+            <if test="upPrice">
+                order by
+                prdt_price desc
+            </if>
+            <if test="downPrice">
+                order by
+                prdt_price asc
+            </if>
     </select>
 
     <select id="getProductDetail" parameterType="string" resultType="java.util.HashMap">
@@ -45,12 +57,39 @@
             prdt_id,
             prdt_name,
             prdt_mainimg,
-            brand_nm,
-            prdt_detail,
-            updt_dt
+            brand_name,
+            updt_date,
+            prdt_price,
+            prdt_detailimg,
+            prdt_categori,
+            prdt_option,
+            brand_id,
+            sale_code
         from
-            product_list
+            product_list,
+            (
+                select
+                    sale_code,
+                    sale_count,
+                    sale_period
+                from
+                    sale_list
+                where
+                    sale_period > now()
+            ) sl
         where
             prdt_id = #{prdtId}::uuid
+            and sale_code = sl.sale_code
+    </select>
+
+    <select id="getBrandDetail" parameterType="string" resultType="java.util.HashMap">
+        select
+            brand_id,
+            brand_name,
+            brand_detail
+        from
+            brand_list
+        where
+            brand_id = #{brandNm}
     </select>
 </mapper>

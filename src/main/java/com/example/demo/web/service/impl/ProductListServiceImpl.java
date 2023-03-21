@@ -25,4 +25,10 @@ public class ProductListServiceImpl implements ProductListService {
         List<Map<String, Object>> result = productListDAO.getProductDetail(prdtId);
         return result;
     }
+
+    @Override
+    public List<Map<String, Object>> getBrandDetail(String brandNm) throws Exception {
+        List<Map<String, Object>> result = productListDAO.getBrandDetail(brandNm);
+        return result;
+    }
 }
