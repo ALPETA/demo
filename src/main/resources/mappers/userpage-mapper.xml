@@ -5,21 +5,67 @@
 
     <!-- 관심상품 리스트 -->
     <select id="getUserWishList" parameterType="string" resultType="java.util.HashMap">
-
+        select
+            wl.prdt_code,
+            pl.prdt_name,
+            pl.prdt_mainimg,
+            pl.brand_name,
+            pl.prdt_price,
+            pl.prdt_categori,
+            pl.brand_id,
+            pl.sale_code,
+            sl.sale_count
+        from
+            wish_list wl,
+            product_list pl,
+            sale_list sl
+        where
+            user_id = #{userId}::uuid
+            and sl.sale_period > now()
+            and pl.sale_code = sl.sale_code
     </select>
 
     <!-- 장바구니 -->
     <select id="getUserShopbagList" parameterType="string" resultType="java.util.HashMap">
-
+        select
+            sbl.prdt_code,
+            pl.prdt_name,
+            pl.prdt_mainimg,
+            pl.brand_name,
+            pl.prdt_price,
+            pl.prdt_categori,
+            pl.brand_id,
+            pl.sale_code,
+            sl.sale_count
+        from
+            shopbag_list sbl,
+            product_list pl,
+            sale_list sl
+        where
+            user_id = #{userId}::uuid
+            and sl.sale_period > now()
+            and pl.sale_code = sl.sale_code
     </select>
 
     <!-- 사용자 쿠폰 리스트 -->
     <select id="getUserCuponeList" parameterType="string" resultType="java.util.HashMap">
-
+        select
+            cl.cupone_code,
+            cl.sale_count,
+            cl.cupone_name,
+            cl.expiration_period
+        from
+            issued_coupone_list icl,
+            cupone_list cl
+        where
+            icl.user_id = #{userId}
+            and cl.expiration_period > now()
+            and icl.cupone_code = cl.cupone_code
     </select>
 
     <!-- 주문내역 -->
     <select id="getUserShoppingList" parameterType="string" resultType="java.util.HashMap">
+
 
     </select>
 
