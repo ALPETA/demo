@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.demo.web.dao.ProductListDAO">
 
-    <!-- 모든 아이템 -->
+    <!--상품 리스트-->
     <select id="getProductList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT
             prdt_id,
@@ -42,16 +42,17 @@
             <if test="updtDt">
                 and  updt_date > #{updtDt}
             </if>
-            <if test="upPrice">
-                order by
+        <if test="upPrice">
+            order by
                 prdt_price desc
-            </if>
-            <if test="downPrice">
-                order by
+        </if>
+        <if test="downPrice">
+            order by
                 prdt_price asc
-            </if>
+        </if>
     </select>
 
+    <!-- 상품 상세 -->
     <select id="getProductDetail" parameterType="string" resultType="java.util.HashMap">
         select
             prdt_id,
@@ -82,6 +83,7 @@
             and sale_code = sl.sale_code
     </select>
 
+    <!-- 브랜드 상세 -->
     <select id="getBrandDetail" parameterType="string" resultType="java.util.HashMap">
         select
             brand_id,

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.web.dao.UserPageDAO">
+
+    <!-- 관심상품 리스트 -->
+    <select id="getUserWishList" parameterType="string" resultType="java.util.HashMap">
+
+    </select>
+
+    <!-- 장바구니 -->
+    <select id="getUserShopbagList" parameterType="string" resultType="java.util.HashMap">
+
+    </select>
+
+    <!-- 사용자 쿠폰 리스트 -->
+    <select id="getUserCuponeList" parameterType="string" resultType="java.util.HashMap">
+
+    </select>
+
+    <!-- 주문내역 -->
+    <select id="getUserShoppingList" parameterType="string" resultType="java.util.HashMap">
+
+    </select>
+
+    <!-- 주문 상세 내역 -->
+    <select id="getUserShoppingDetail" parameterType="string" resultType="java.util.HashMap">
+
+    </select>
+</mapper>
