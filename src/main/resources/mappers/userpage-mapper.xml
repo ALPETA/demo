@@ -65,12 +65,27 @@
 
     <!-- 주문내역 -->
     <select id="getUserShoppingList" parameterType="string" resultType="java.util.HashMap">
-
-
+        select
+            shopping_code,
+            shopping_detail -> 0,
+            shopping_dt
+        from
+            shopping_list sl
+        where
+            sl.user_id = #{userId}
+        order by
+            shopping_dt desc
     </select>
 
     <!-- 주문 상세 내역 -->
     <select id="getUserShoppingDetail" parameterType="string" resultType="java.util.HashMap">
-
+        select
+            shopping_code,
+            shopping_detail,
+            shopping_dt
+        from
+            shopping_list sl
+        where
+            sl.shopping_code = #{shoppingCode}
     </select>
 </mapper>
