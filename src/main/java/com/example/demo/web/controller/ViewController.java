@@ -1,15 +1,23 @@
 package com.example.demo.web.controller;
 
+import com.example.demo.web.service.ProductListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 public class ViewController {
+
+    private final ProductListService productListService;
+
+    public ViewController(ProductListService productListService) {
+        this.productListService = productListService;
+    }
 
     /**
      * 로그인 페이지
@@ -64,8 +72,33 @@ public class ViewController {
     @GetMapping("/productlist/{state}")
     public ModelAndView productlist(
             @PathVariable("state") String state
-    ){
+    ) throws Exception {
         ModelAndView mav = new ModelAndView();
+
+        if(state.equals("all")) {
+            Map<String, Object> selectValues = new HashMap<>();
+            List<Map<String, Object>> productList = productListService.getProductList(selectValues);
+            mav.addObject("productList",productList);
+        }else if(state.equals("new")){
+            Map<String, Object> selectValues = new HashMap<>();
+
+            Date now = new Date();
+            Calendar cl = Calendar.getInstance();
+            cl.setTime(now);
+            cl.add(Calendar.MONTH, -3);
+            SimpleDateFormat formdate = new SimpleDateFormat("yyyy-MM-dd");
+            String date = formdate.format(cl);
+
+            selectValues.put("updtDt", date);
+            List<Map<String, Object>> productList = productListService.getProductList(selectValues);
+            mav.addObject("productList",productList);
+        }else{
+            Map<String, Object> selectValues = new HashMap<>();
+            selectValues.put("brandId", state);
+            List<Map<String, Object>> productList = productListService.getProductList(selectValues);
+            mav.addObject("productList",productList);
+        }
+
         mav.setViewName("productlist");
         return mav;
     }

@@ -14,22 +14,14 @@
             prdt_price,
             prdt_categori,
             brand_id,
-            sale_code,
+            pl.sale_code,
             sl.sale_count
         FROM
-            product_list pl,
-            (
-                select
-                    sale_code,
-                    sale_count,
-                    sale_period
-                from
-                    sale_list
-                where
-                    sale_period > now()
-            ) sl
+            product_list pl
+        left join sale_list sl
+        on pl.sale_code = sl.sale_code and sale_period > now()
         where
-            pl.sale_code = sl.sale_code
+            0=0
             <if test="brandId">
                 and brand_id = #{brandId}::uuid
             </if>
