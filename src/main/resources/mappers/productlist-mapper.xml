@@ -33,26 +33,19 @@
             <if test="prdtCategori">
                 and prdt_categori like '%'||#{prdtCategori}||'%'::uuid
             </if>
-            <if test="updtDt">
-                and  updt_date > #{updtDt}
+            <if test="newPage">
+                and updt_date >= (current_timestamp + '-2 months')
             </if>
+        order by
+            updt_date desc
         <if test="upPrice">
-            order by
-                prdt_price desc
+            prdt_price desc
         </if>
         <if test="downPrice">
-            order by
-                prdt_price asc
+            prdt_price asc
         </if>
         <if test="mainPage">
-            order by
-                updt_date asc
-                and sale_count desc
-        </if>
-        <if test="mainPage">
-                updt_date >= now()
-            order by
-                updt_date asc
+            sale_count desc
         </if>
     </select>
 

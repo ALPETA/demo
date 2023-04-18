@@ -74,26 +74,17 @@ public class ViewController {
             @PathVariable("state") String state
     ) throws Exception {
         ModelAndView mav = new ModelAndView();
+        Map<String, Object> selectValues = new HashMap<>();
 
         if(state.equals("all")) {
-            Map<String, Object> selectValues = new HashMap<>();
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);
         }else if(state.equals("new")){
-            Map<String, Object> selectValues = new HashMap<>();
 
-            Date now = new Date();
-            Calendar cl = Calendar.getInstance();
-            cl.setTime(now);
-            cl.add(Calendar.MONTH, -3);
-            SimpleDateFormat formdate = new SimpleDateFormat("yyyy-MM-dd");
-            String date = formdate.format(cl);
-
-            selectValues.put("updtDt", date);
+            selectValues.put("newPage", "");
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);
         }else{
-            Map<String, Object> selectValues = new HashMap<>();
             selectValues.put("brandId", state);
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);
