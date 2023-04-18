@@ -17,6 +17,11 @@ footer p {
     clear: left;
 }
 
-.page_header {
+.mb-3 {
+    width: 320px !important;
+    border-width: 0 !important;;
+}
 
+.card-header {
+    background-color: white !important;
 }

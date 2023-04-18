@@ -48,8 +48,19 @@ public class ViewController {
      * @return mav
      */
     @GetMapping("/")
-    public ModelAndView main(){
+    public ModelAndView main() throws Exception {
         ModelAndView mav = new ModelAndView();
+
+        Map<String, Object> newSelectValues = new HashMap<>();
+        Map<String, Object> bestSelectValues = new HashMap<>();
+        newSelectValues.put("newPage", "");
+        bestSelectValues.put("mainPage", "");
+
+        List<Map<String, Object>> newProductList = productListService.getProductList(newSelectValues);
+        List<Map<String, Object>> bestProductList = productListService.getProductList(bestSelectValues);
+        mav.addObject("newProductList",newProductList);
+        mav.addObject("bestProductList",bestProductList);
+
         mav.setViewName("main");
         return mav;
     }
@@ -80,11 +91,11 @@ public class ViewController {
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);
         }else if(state.equals("new")){
-
             selectValues.put("newPage", "");
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);
-        }else{
+        }
+        else{
             selectValues.put("brandId", state);
             List<Map<String, Object>> productList = productListService.getProductList(selectValues);
             mav.addObject("productList",productList);

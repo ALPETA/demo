@@ -39,13 +39,13 @@
         order by
             updt_date desc
         <if test="upPrice">
-            prdt_price desc
+            ,prdt_price desc
         </if>
         <if test="downPrice">
-            prdt_price asc
+            ,prdt_price asc
         </if>
         <if test="mainPage">
-            sale_count desc
+            ,sale_count desc
         </if>
     </select>
 
