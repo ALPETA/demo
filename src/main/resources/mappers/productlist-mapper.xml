@@ -14,12 +14,14 @@
             TO_CHAR(prdt_price,'999,999,999,999') AS prdt_price,
             prdt_categori,
             brand_id,
+            prdt_inventory,
+            prdt_salecnt,
             pl.sale_code,
             sl.sale_count
         FROM
             product_list pl
         left join sale_list sl
-        on pl.sale_code = sl.sale_code and sale_period > now()
+            on pl.sale_code = sl.sale_code and sale_period > now()
         where
             0=0
             <if test="brandId">
@@ -42,6 +44,16 @@
             order by
                 prdt_price asc
         </if>
+        <if test="mainPage">
+            order by
+                updt_date asc
+                and sale_count desc
+        </if>
+        <if test="mainPage">
+                updt_date >= now()
+            order by
+                updt_date asc
+        </if>
     </select>
 
     <!-- 상품 상세 -->
@@ -57,22 +69,16 @@
             prdt_categori,
             prdt_option,
             brand_id,
-            sale_code
+            prdt_inventory,
+            prdt_salecnt,
+            pl.sale_code,
+            sl.sale_count
         from
-            product_list,
-            (
-                select
-                    sale_code,
-                    sale_count,
-                    sale_period
-                from
-                    sale_list
-                where
-                    sale_period > now()
-            ) sl
+            product_list pl
+            left join sale_list sl
+                on pl.sale_code = sl.sale_code and sale_period > now()
         where
             prdt_code = #{prdtCode}::uuid
-            and sale_code = sl.sale_code
     </select>
 
     <!-- 브랜드 상세 -->
