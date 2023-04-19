@@ -45,7 +45,7 @@
             ,prdt_price asc
         </if>
         <if test="mainPage">
-            ,sale_count desc
+            ,prdt_salecnt desc
         </if>
     </select>
 

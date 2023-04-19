@@ -25,3 +25,7 @@ footer p {
 .card-header {
     background-color: white !important;
 }
+
+.page_header {
+    margin-bottom: 10px !important;
+}
