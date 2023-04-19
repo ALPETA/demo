@@ -36,16 +36,21 @@
             <if test="newPage">
                 and updt_date >= (current_timestamp + '-2 months')
             </if>
-        order by
-            updt_date desc
+        <if test="newPage">
+            order by
+                updt_date desc
+        </if>
         <if test="upPrice">
-            ,prdt_price desc
+            order by
+                prdt_price desc
         </if>
         <if test="downPrice">
-            ,prdt_price asc
+            order by
+                prdt_price asc
         </if>
         <if test="mainPage">
-            ,prdt_salecnt desc
+            order by
+                prdt_salecnt desc
         </if>
     </select>
 
