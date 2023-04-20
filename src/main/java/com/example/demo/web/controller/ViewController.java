@@ -106,6 +106,22 @@ public class ViewController {
     }
 
     /**
+     * 상품상세페이지
+     * @return mav
+     */
+    @GetMapping("/productdetail/{prdtId}")
+    public ModelAndView productdetail(
+            @PathVariable("prdtId") String prdtId
+    ) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        List<Map<String, Object>> productdetailList = productListService.getProductDetail(prdtId);
+        mav.addObject("productdetailList",productdetailList);
+
+        mav.setViewName("detail");
+        return mav;
+    }
+
+    /**
      * 브랜드페이지
      * @return mav
      */

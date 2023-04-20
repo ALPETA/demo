@@ -6,7 +6,7 @@
     <!--상품 리스트-->
     <select id="getProductList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT
-        prdt_code,
+            prdt_code,
             prdt_name,
             prdt_mainimg,
             brand_name,
@@ -76,7 +76,7 @@
             left join sale_list sl
                 on pl.sale_code = sl.sale_code and sale_period > now()
         where
-            prdt_code = #{prdtCode}::uuid
+            prdt_code = #{prdtCode}
     </select>
 
     <!-- 브랜드 상세 -->

@@ -1,0 +1,14 @@
+.img_aria {
+    width: 50%;
+    float: left;
+    border-right: 1px solid #f3969a;
+}
+
+.detail_aria {
+    width: 50%;
+    float: right;
+}
+
+.page_header {
+    margin-bottom: 10px !important;
+}
