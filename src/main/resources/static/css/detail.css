@@ -1,17 +1,20 @@
 .div_main{
     background-color: white;
-    margin-bottom: 310px;
 }
 
 .img_aria {
     width: 50%;
     float: left;
     border-right: 1px solid #f3969a;
+    margin-bottom: 310px;
+    background-color: white;
 }
 
 .detail_aria {
     width: 50%;
     float: right;
+    margin-bottom: 310px;
+    background-color: white;
 }
 
 .page_header {
